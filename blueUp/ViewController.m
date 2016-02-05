@@ -9,13 +9,32 @@
 #import "ViewController.h"
 #import <PTDBeanManager.h>
 
-@interface ViewController () <PTDBeanManagerDelegate, PTDBeanDelegate>
+@interface ViewController () <PTDBeanManagerDelegate, PTDBeanDelegate> {
+    NSNumber *startTime;
+    NSNumber *endTime;
+    BOOL isDown;
+    BOOL isEnd;
+}
+@property (strong, nonatomic) IBOutlet UIButton *connectBtn;
 @property (strong, nonatomic) IBOutlet UILabel *infoText;
 @property (nonatomic, strong) PTDBeanManager *beanManager;
 @property (nonatomic, strong) NSMutableDictionary *beans;
 @end
 
 @implementation ViewController
+
+-(void) drawRect: (CGRect) rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    // draw sky
+    // draw mountains
+    // draw grass
+    // draw flowers
+    
+    CGColorSpaceRelease(colorSpace);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,11 +49,14 @@
 }
 
 - (IBAction)readAccelerometer:(id)sender {
+    NSTimer *t = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector:@selector(onTick:) userInfo: nil repeats:YES];
+    isDown = NO;
+}
+
+-(void)onTick:(NSTimer *)timer {
     PTDBean* bean = [self.beans.allValues objectAtIndex:0];
     [bean readAccelerationAxes];
 }
-
-
 
 
 #pragma mark BeanDelegate
@@ -48,8 +70,39 @@
 
 -(void)bean:(PTDBean*)bean didUpdateAccelerationAxes:(PTDAcceleration)acceleration {
     NSString *msg = [NSString stringWithFormat:@"x:%f y:%f z:%f", acceleration.x,acceleration.y,acceleration.z];
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:msg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-//    [alert show];
+    
+    float sum = sqrt(pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2));
+    self.infoText.text = [NSString stringWithFormat:@"%f", sum];
+//    NSLog(@"sum: %f", sum);
+    
+    if (isDown == NO && sum > 2.0) {
+        NSTimeInterval timeStamp = [[NSDate date] timeIntervalSince1970];
+        startTime = [NSNumber numberWithDouble: timeStamp];
+        NSLog(@"up: %f", sum);
+        isDown = NO;
+
+    } else if (sum < 0.098) {
+        NSLog(@"top: %f", sum);
+        isDown = YES;
+    }
+    
+    if (isDown && sum > 0.98) {
+        NSLog(@"ground: %f", sum);
+        isDown = NO;
+    
+        NSTimeInterval timeStamp = [[NSDate date] timeIntervalSince1970];
+        endTime = [NSNumber numberWithDouble: timeStamp];
+        NSNumber* total = [NSNumber numberWithDouble:[endTime doubleValue] - [startTime doubleValue]];
+        NSLog(@"total: %@", total);
+        
+        float t = [total floatValue];
+        float height = pow(t, 2) * 9.8 / 8;
+        NSLog(@"height:%f", height);
+              
+    }
+    
+    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:msg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    //    [alert show];
 }
 
 

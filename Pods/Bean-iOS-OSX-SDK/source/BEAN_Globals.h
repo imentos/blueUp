@@ -17,7 +17,7 @@
 #define PUNCHTHROUGHDESIGN_128_UUID(uuid16) @"A495" uuid16 @"-C5B1-4B44-B512-1370F02D74DE"
 
 // based on http://doing-it-wrong.mikeweller.com/2012/07/youre-doing-it-wrong-1-nslogdebug-ios.html
-#if DEBUG == 1
+#if DEBUG == 0
     #define PTDLog NSLog
 #else
     #define PTDLog(...)
