@@ -8,8 +8,12 @@
 
 #import "ViewController.h"
 #import <PTDBeanManager.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <ParseFacebookUtilsV4/ParseFacebookUtilsV4.h>
+#import <ParseUI/PFLogInViewController.h>
 
-@interface ViewController () <PTDBeanManagerDelegate, PTDBeanDelegate> {
+@interface ViewController () <PTDBeanManagerDelegate, PTDBeanDelegate, PFLogInViewControllerDelegate> {
     NSNumber *startTime;
     NSNumber *endTime;
     BOOL isDown;
@@ -23,17 +27,32 @@
 
 @implementation ViewController
 
--(void) drawRect: (CGRect) rect
-{
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    
-    // draw sky
-    // draw mountains
-    // draw grass
-    // draw flowers
-    
-    CGColorSpaceRelease(colorSpace);
+- (void)viewDidAppear:(BOOL)animated {
+    [self presentPFLogInViewController];
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)presentPFLogInViewController {
+    if (![PFUser currentUser] || // Check if user is cached
+        ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
+        
+        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+        logInController.delegate = self;
+        logInController.fields = (PFLogInFieldsUsernameAndPassword
+                                  | PFLogInFieldsFacebook
+                                  | PFLogInFieldsDismissButton);
+        [self presentViewController:logInController animated:YES completion:nil];
+    } else {
+        NSLog(@"User is cached and showing content.");
+    }
+}
+
+- (IBAction)logout:(id)sender {
+    [PFUser logOut];
+    [self presentPFLogInViewController];
 }
 
 - (void)viewDidLoad {
@@ -41,6 +60,37 @@
     
     self.beans = [NSMutableDictionary dictionary];
     self.beanManager = [[PTDBeanManager alloc] initWithDelegate:self];
+    
+    
+    
+//    PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
+//    gameScore[@"score"] = @1337;
+//    gameScore[@"user"] = [PFUser currentUser];
+//    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            // The object has been saved.
+//        } else {
+//            // There was a problem, check error.description
+//        }
+//    }];
+    
+    
+//    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+//    loginButton.center = self.view.center;
+//    [self.view addSubview:loginButton];
+//    
+//    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+//    
+//    // Login PFUser using Facebook
+//    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+//        if (!user) {
+//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+//        } else if (user.isNew) {
+//            NSLog(@"User signed up and logged in through Facebook!");
+//        } else {
+//            NSLog(@"User logged in through Facebook!");
+//        }
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {
