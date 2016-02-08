@@ -63,34 +63,34 @@
     
     
     
-//    PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
-//    gameScore[@"score"] = @1337;
-//    gameScore[@"user"] = [PFUser currentUser];
-//    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            // The object has been saved.
-//        } else {
-//            // There was a problem, check error.description
-//        }
-//    }];
+    //    PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
+    //    gameScore[@"score"] = @1337;
+    //    gameScore[@"user"] = [PFUser currentUser];
+    //    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    //        if (succeeded) {
+    //            // The object has been saved.
+    //        } else {
+    //            // There was a problem, check error.description
+    //        }
+    //    }];
     
     
-//    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-//    loginButton.center = self.view.center;
-//    [self.view addSubview:loginButton];
-//    
-//    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-//    
-//    // Login PFUser using Facebook
-//    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-//        if (!user) {
-//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-//        } else if (user.isNew) {
-//            NSLog(@"User signed up and logged in through Facebook!");
-//        } else {
-//            NSLog(@"User logged in through Facebook!");
-//        }
-//    }];
+    //    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    //    loginButton.center = self.view.center;
+    //    [self.view addSubview:loginButton];
+    //
+    //    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    //
+    //    // Login PFUser using Facebook
+    //    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+    //        if (!user) {
+    //            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+    //        } else if (user.isNew) {
+    //            NSLog(@"User signed up and logged in through Facebook!");
+    //        } else {
+    //            NSLog(@"User logged in through Facebook!");
+    //        }
+    //    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,14 +123,14 @@
     
     float sum = sqrt(pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2));
     self.infoText.text = [NSString stringWithFormat:@"%f", sum];
-//    NSLog(@"sum: %f", sum);
+    //    NSLog(@"sum: %f", sum);
     
     if (isDown == NO && sum > 2.0) {
         NSTimeInterval timeStamp = [[NSDate date] timeIntervalSince1970];
         startTime = [NSNumber numberWithDouble: timeStamp];
         NSLog(@"up: %f", sum);
         isDown = NO;
-
+        
     } else if (sum < 0.098) {
         NSLog(@"top: %f", sum);
         isDown = YES;
@@ -139,7 +139,7 @@
     if (isDown && sum > 0.98) {
         NSLog(@"ground: %f", sum);
         isDown = NO;
-    
+        
         NSTimeInterval timeStamp = [[NSDate date] timeIntervalSince1970];
         endTime = [NSNumber numberWithDouble: timeStamp];
         NSNumber* total = [NSNumber numberWithDouble:[endTime doubleValue] - [startTime doubleValue]];
@@ -148,7 +148,19 @@
         float t = [total floatValue];
         float height = pow(t, 2) * 9.8 / 8;
         NSLog(@"height:%f", height);
-              
+        
+        
+        
+        PFObject *score = [PFObject objectWithClassName:@"Score"];
+        score[@"height"] = @(height);
+        score[@"user"] = [PFUser currentUser];
+        [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // The object has been saved.
+            } else {
+                // There was a problem, check error.description
+            }
+        }];
     }
     
     //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:msg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
