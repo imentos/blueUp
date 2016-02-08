@@ -30,6 +30,7 @@
 		B39330F31C63F87900EE88AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39330F11C63F87900EE88AD /* Main.storyboard */; };
 		B39330F51C63F87A00EE88AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39330F41C63F87A00EE88AD /* Assets.xcassets */; };
 		B39330F81C63F87A00EE88AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39330F61C63F87A00EE88AD /* LaunchScreen.storyboard */; };
+		B39BE6881C691020008A1AA0 /* TopScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39BE6871C691020008A1AA0 /* TopScoreViewController.m */; };
 		CFDF249413AD166B6B0E435D /* libPods-blueUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 308BAFE4C24DE5C07B04643C /* libPods-blueUp.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		B39330F41C63F87A00EE88AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B39330F71C63F87A00EE88AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B39330F91C63F87A00EE88AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B39BE6861C691020008A1AA0 /* TopScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoreViewController.h; sourceTree = "<group>"; };
+		B39BE6871C691020008A1AA0 /* TopScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoreViewController.m; sourceTree = "<group>"; };
 		F09C94FD72A6692992DF24C0 /* Pods-blueUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blueUp/Pods-blueUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +162,8 @@
 				B39330F61C63F87A00EE88AD /* LaunchScreen.storyboard */,
 				B39330F91C63F87A00EE88AD /* Info.plist */,
 				B39330E81C63F87900EE88AD /* Supporting Files */,
+				B39BE6861C691020008A1AA0 /* TopScoreViewController.h */,
+				B39BE6871C691020008A1AA0 /* TopScoreViewController.m */,
 			);
 			path = blueUp;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39330F01C63F87900EE88AD /* ViewController.m in Sources */,
+				B39BE6881C691020008A1AA0 /* TopScoreViewController.m in Sources */,
 				B39330ED1C63F87900EE88AD /* AppDelegate.m in Sources */,
 				B39330EA1C63F87900EE88AD /* main.m in Sources */,
 			);

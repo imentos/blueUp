@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WRn-bu-MrL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -38,15 +39,30 @@
                                     <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gj8-X6-7Xn"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xf-U4-8Vb">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2W5-6j-rFJ"/>
+                                    <barButtonItem title="Top" id="ApA-uG-NpS">
+                                        <connections>
+                                            <segue destination="b4H-Uc-2qA" kind="presentation" id="PSD-dn-hEB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="3xf-U4-8Vb" secondAttribute="trailing" constant="-20" id="2Td-8J-Rum"/>
                             <constraint firstItem="7lm-4d-sd6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BiU-k3-0jv"/>
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="Qb0-48-iYz"/>
                             <constraint firstItem="7lm-4d-sd6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QkH-uv-FNa"/>
+                            <constraint firstItem="3xf-U4-8Vb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="lL4-tW-aPH"/>
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qiA-uO-M2Y"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3xf-U4-8Vb" secondAttribute="bottom" id="rjN-Rl-dzD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9Q3-f6-F9e"/>
                     <connections>
                         <outlet property="connectBtn" destination="Ecs-9U-iNz" id="Kjh-g8-re2"/>
                         <outlet property="infoText" destination="7lm-4d-sd6" id="oS7-Qh-D62"/>
@@ -54,6 +70,79 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1084" y="143"/>
+        </scene>
+        <!--Top Score View Controller-->
+        <scene sceneID="VrV-5P-iq9">
+            <objects>
+                <tableViewController id="kRl-td-gIC" customClass="TopScoreViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ME0-vo-BkN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0jS-cn-oIf">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0jS-cn-oIf" id="4C7-oZ-Mcs">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kRl-td-gIC" id="EOB-zh-5vb"/>
+                            <outlet property="delegate" destination="kRl-td-gIC" id="f4u-tN-PUR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="VX7-3r-Wvt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cmZ-fa-Yn1">
+                            <connections>
+                                <segue destination="D5P-Lb-WFj" kind="unwind" unwindAction="unwind:" id="0gQ-zh-Dsz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JSU-fh-SEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="D5P-Lb-WFj" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2741" y="143"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zTr-7E-u4F">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WRn-bu-MrL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="31X-n4-LHm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FHl-2Q-iv3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OxK-zk-7Ih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272" y="143"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C6H-wp-fwS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b4H-Uc-2qA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j1J-pw-Z2a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kRl-td-gIC" kind="relationship" relationship="rootViewController" id="TYE-Eb-Qtu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7dO-4X-q6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="143"/>
         </scene>
     </scenes>
 </document>

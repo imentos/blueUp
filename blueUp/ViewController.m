@@ -27,6 +27,9 @@
 
 @implementation ViewController
 
+-(IBAction)unwind:(UIStoryboardSegue *)segue {
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self presentPFLogInViewController];
 }
