@@ -16,12 +16,14 @@
 @interface ViewController () <PTDBeanManagerDelegate, PTDBeanDelegate, PFLogInViewControllerDelegate> {
     NSNumber *startTime;
     NSNumber *endTime;
+    NSTimer *timer;
     BOOL isDown;
     BOOL isEnd;
 }
 @property (strong, nonatomic) IBOutlet UIButton *connectBtn;
 @property (strong, nonatomic) IBOutlet UILabel *infoText;
 @property (nonatomic, strong) PTDBeanManager *beanManager;
+@property (nonatomic, strong) PTDBean *bean;
 @property (nonatomic, strong) NSMutableDictionary *beans;
 @end
 
@@ -34,7 +36,30 @@
     [self presentPFLogInViewController];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self update];
+}
+
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", result);
+                 PFObject *user = [PFUser currentUser];
+                 user[@"facebookId"] = result[@"id"];
+                 [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                     if (succeeded) {
+                         // The object has been saved.
+                     } else {
+                         // There was a problem, check error.description
+                     }
+                 }];
+             }
+         }];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -63,37 +88,9 @@
     
     self.beans = [NSMutableDictionary dictionary];
     self.beanManager = [[PTDBeanManager alloc] initWithDelegate:self];
+    self.beanManager.delegate = self;
     
-    
-    
-    //    PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
-    //    gameScore[@"score"] = @1337;
-    //    gameScore[@"user"] = [PFUser currentUser];
-    //    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-    //        if (succeeded) {
-    //            // The object has been saved.
-    //        } else {
-    //            // There was a problem, check error.description
-    //        }
-    //    }];
-    
-    
-    //    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    //    loginButton.center = self.view.center;
-    //    [self.view addSubview:loginButton];
-    //
-    //    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-    //
-    //    // Login PFUser using Facebook
-    //    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-    //        if (!user) {
-    //            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-    //        } else if (user.isNew) {
-    //            NSLog(@"User signed up and logged in through Facebook!");
-    //        } else {
-    //            NSLog(@"User logged in through Facebook!");
-    //        }
-    //    }];
+    self.connectBtn.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,8 +98,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)readAccelerometer:(id)sender {
-    NSTimer *t = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector:@selector(onTick:) userInfo: nil repeats:YES];
+- (IBAction)connect:(id)sender {
+    if (self.bean.state == BeanState_Discovered) {
+        self.bean.delegate = self;
+        [self.beanManager connectToBean:self.bean error:nil];
+        self.beanManager.delegate = self;
+        self.connectBtn.enabled = NO;
+    } else {
+        self.bean.delegate = self;
+        [self.beanManager disconnectBean:self.bean error:nil];
+    }
+}
+
+- (void)update {
+    if (self.bean.state == BeanState_Discovered) {
+        [self.connectBtn setTitle:@"Connect" forState:UIControlStateNormal];
+        self.connectBtn.enabled = YES;
+        
+        [timer invalidate];
+    }
+    else if (self.bean.state == BeanState_ConnectedAndValidated) {
+        [self.connectBtn setTitle:@"Disconnect" forState:UIControlStateNormal];
+        self.connectBtn.enabled = YES;
+        
+        [self startReadAccelerationAxes];
+    }
+}
+
+-(void)startReadAccelerationAxes {
+    timer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector:@selector(onTick:) userInfo: nil repeats:YES];
     isDown = NO;
 }
 
@@ -139,6 +163,7 @@
         isDown = YES;
     }
     
+    // blue is on your hand now
     if (isDown && sum > 0.98) {
         NSLog(@"ground: %f", sum);
         isDown = NO;
@@ -152,26 +177,20 @@
         float height = pow(t, 2) * 9.8 / 8;
         NSLog(@"height:%f", height);
         
-        
-        
         PFObject *score = [PFObject objectWithClassName:@"Score"];
         score[@"height"] = @(height);
         score[@"user"] = [PFUser currentUser];
         [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                // The object has been saved.
+                self.infoText.text = [NSString stringWithFormat:@"Height: %f", height];
+                
+                [self.beanManager disconnectFromAllBeans:nil];
             } else {
                 // There was a problem, check error.description
             }
         }];
     }
-    
-    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:msg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-    //    [alert show];
 }
-
-
-
 
 #pragma mark - BeanManagerDelegate Callbacks
 - (void)beanManagerDidUpdateState:(PTDBeanManager *)manager{
@@ -193,12 +212,10 @@
         self.infoText.text = [NSString stringWithFormat:@"Discover bean %@", bean];
         NSLog(@"BeanManager:didDiscoverBean:error %@", bean);
         [self.beans setObject:bean forKey:key];
+        self.bean = bean;
         
-        [self.beanManager connectToBean:bean error:nil];
-        self.beanManager.delegate = self;
-        bean.delegate = self;
+        self.connectBtn.enabled = YES;
     }
-    //    [self.tableView reloadData];
 }
 
 - (void)BeanManager:(PTDBeanManager*)beanManager didConnectToBean:(PTDBean*)bean error:(NSError*)error{
@@ -214,11 +231,13 @@
         [alert show];
         return;
     }
-    //    [self.tableView reloadData];
+    [self update];
 }
 
 - (void)BeanManager:(PTDBeanManager*)beanManager didDisconnectBean:(PTDBean*)bean error:(NSError*)error{
-    //    [self.tableView reloadData];
+    if (bean == self.bean) {
+        [self update];
+    }
 }
 
 

@@ -37,8 +37,11 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"score" forIndexPath:indexPath];
     
     UILabel* userLabel = [cell viewWithTag:101];
+    PFUser* user = [score objectForKey:@"user"];
+    [user fetchIfNeeded];
+    NSString* fid = user[@"facebookId"];
     if ([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:fid parameters:nil]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error) {
                  NSLog(@"fetched user:%@", result);

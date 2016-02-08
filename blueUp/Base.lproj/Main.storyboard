@@ -29,7 +29,7 @@
                                 <rect key="frame" x="271" y="435" width="59" height="30"/>
                                 <state key="normal" title="Connect"/>
                                 <connections>
-                                    <action selector="readAccelerometer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j3E-b2-Fgo"/>
+                                    <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4uj-eq-csR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAn-25-VYH">
