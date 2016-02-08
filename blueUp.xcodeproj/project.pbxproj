@@ -157,13 +157,13 @@
 				B39330EC1C63F87900EE88AD /* AppDelegate.m */,
 				B39330EE1C63F87900EE88AD /* ViewController.h */,
 				B39330EF1C63F87900EE88AD /* ViewController.m */,
+				B39BE6861C691020008A1AA0 /* TopScoreViewController.h */,
+				B39BE6871C691020008A1AA0 /* TopScoreViewController.m */,
 				B39330F11C63F87900EE88AD /* Main.storyboard */,
 				B39330F41C63F87A00EE88AD /* Assets.xcassets */,
 				B39330F61C63F87A00EE88AD /* LaunchScreen.storyboard */,
 				B39330F91C63F87A00EE88AD /* Info.plist */,
 				B39330E81C63F87900EE88AD /* Supporting Files */,
-				B39BE6861C691020008A1AA0 /* TopScoreViewController.h */,
-				B39BE6871C691020008A1AA0 /* TopScoreViewController.m */,
 			);
 			path = blueUp;
 			sourceTree = "<group>";
