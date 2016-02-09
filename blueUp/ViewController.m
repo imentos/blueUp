@@ -18,7 +18,7 @@
     NSNumber *endTime;
     NSTimer *timer;
     BOOL isDown;
-    BOOL isEnd;
+    BOOL isUp;
 }
 @property (strong, nonatomic) IBOutlet UIButton *connectBtn;
 @property (strong, nonatomic) IBOutlet UILabel *infoText;
@@ -128,6 +128,7 @@
 -(void)startReadAccelerationAxes {
     timer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector:@selector(onTick:) userInfo: nil repeats:YES];
     isDown = NO;
+    isUp = NO;
 }
 
 -(void)onTick:(NSTimer *)timer {
@@ -145,6 +146,9 @@
 -(void)bean:(PTDBean*)device receivedMessage:(NSData*)data {
 }
 
+/////////////////////////
+// MAIN LOGIC
+/////////////////////////
 -(void)bean:(PTDBean*)bean didUpdateAccelerationAxes:(PTDAcceleration)acceleration {
     NSString *msg = [NSString stringWithFormat:@"x:%f y:%f z:%f", acceleration.x,acceleration.y,acceleration.z];
     
@@ -152,19 +156,22 @@
     self.infoText.text = [NSString stringWithFormat:@"%f", sum];
     //    NSLog(@"sum: %f", sum);
     
-    if (isDown == NO && sum > 2.0) {
+    // blue is thrown up (2g)
+    if (isUp == NO && sum > 2.0) {
         NSTimeInterval timeStamp = [[NSDate date] timeIntervalSince1970];
         startTime = [NSNumber numberWithDouble: timeStamp];
         NSLog(@"up: %f", sum);
-        isDown = NO;
+        isUp = YES;
         
-    } else if (sum < 0.098) {
+    }
+    // blue is weightless (0g)
+    else if (isUp && sum < 0.098) {
         NSLog(@"top: %f", sum);
         isDown = YES;
     }
     
-    // blue is on your hand now
-    if (isDown && sum > 0.98) {
+    // blue is on your hand now (1g)
+    else if (isDown && sum > 0.98) {
         NSLog(@"ground: %f", sum);
         isDown = NO;
         
