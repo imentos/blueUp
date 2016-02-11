@@ -20,6 +20,10 @@
     BOOL isDown;
     BOOL isUp;
 }
+@property (strong, nonatomic) IBOutlet UIButton *logoutBtn;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet FBSDKProfilePictureView *userPhoto;
 @property (strong, nonatomic) IBOutlet UIButton *connectBtn;
 @property (strong, nonatomic) IBOutlet UILabel *infoText;
 @property (nonatomic, strong) PTDBeanManager *beanManager;
@@ -42,23 +46,7 @@
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    if ([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-             if (!error) {
-                 NSLog(@"fetched user:%@", result);
-                 PFObject *user = [PFUser currentUser];
-                 user[@"facebookId"] = result[@"id"];
-                 [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                     if (succeeded) {
-                         // The object has been saved.
-                     } else {
-                         // There was a problem, check error.description
-                     }
-                 }];
-             }
-         }];
-    }
+    [self showUserInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -75,12 +63,35 @@
         [self presentViewController:logInController animated:YES completion:nil];
     } else {
         NSLog(@"User is cached and showing content.");
+        
+        [self showUserInfo];
     }
 }
 
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
     [self presentPFLogInViewController];
+}
+
+- (void)showUserInfo {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", result);
+                 PFObject *user = [PFUser currentUser];
+                 user[@"facebookId"] = result[@"id"];
+                 self.nameLabel.text = result[@"name"];
+                 [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                     if (succeeded) {
+                         // The object has been saved.
+                     } else {
+                         // There was a problem, check error.description
+                     }
+                 }];
+             }
+         }];
+    }
 }
 
 - (void)viewDidLoad {
@@ -91,6 +102,19 @@
     self.beanManager.delegate = self;
     
     self.connectBtn.enabled = NO;
+    
+    
+    self.userPhoto.layer.borderWidth = 0;
+    self.userPhoto.layer.masksToBounds = YES;
+    //                 self.userPhoto.layer.borderColor = UIColor.blackColor().CGColor;
+    self.userPhoto.layer.cornerRadius = self.userPhoto.bounds.size.height / 2;
+    
+    self.toolbar.clipsToBounds = YES;
+    
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.logoutBtn setImage:image forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,7 +177,7 @@
     NSString *msg = [NSString stringWithFormat:@"x:%f y:%f z:%f", acceleration.x,acceleration.y,acceleration.z];
     
     float sum = sqrt(pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2));
-    self.infoText.text = [NSString stringWithFormat:@"%f", sum];
+    //    self.infoText.text = [NSString stringWithFormat:@"%f", sum];
     //    NSLog(@"sum: %f", sum);
     
     // blue is thrown up (2g)
