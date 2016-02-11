@@ -20,6 +20,7 @@
     BOOL isDown;
     BOOL isUp;
 }
+@property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIButton *logoutBtn;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -34,6 +35,28 @@
 @implementation ViewController
 
 -(IBAction)unwind:(UIStoryboardSegue *)segue {
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.beans = [NSMutableDictionary dictionary];
+    self.beanManager = [[PTDBeanManager alloc] initWithDelegate:self];
+    self.beanManager.delegate = self;
+    
+    self.connectBtn.enabled = NO;
+    [self.connectBtn setImage:[[UIImage imageNamed:@"up"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    
+    self.infoTextView.text = @"Click UP button above and throw your bean from your head as high as possible to break the records";
+    
+    self.userPhoto.layer.borderWidth = 0;
+    self.userPhoto.layer.masksToBounds = YES;
+    self.userPhoto.layer.cornerRadius = self.userPhoto.bounds.size.height / 2;
+    
+    self.toolbar.clipsToBounds = YES;
+    
+    UIImage *image = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.logoutBtn setImage:image forState:UIControlStateNormal];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -81,7 +104,7 @@
                  NSLog(@"fetched user:%@", result);
                  PFObject *user = [PFUser currentUser];
                  user[@"facebookId"] = result[@"id"];
-                 self.nameLabel.text = result[@"name"];
+                 self.nameLabel.text = [NSString stringWithFormat:@"Welcome %@", result[@"name"]];
                  [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                      if (succeeded) {
                          // The object has been saved.
@@ -94,27 +117,10 @@
     }
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.beans = [NSMutableDictionary dictionary];
-    self.beanManager = [[PTDBeanManager alloc] initWithDelegate:self];
-    self.beanManager.delegate = self;
-    
-    self.connectBtn.enabled = NO;
-    
-    
-    self.userPhoto.layer.borderWidth = 0;
-    self.userPhoto.layer.masksToBounds = YES;
-    //                 self.userPhoto.layer.borderColor = UIColor.blackColor().CGColor;
-    self.userPhoto.layer.cornerRadius = self.userPhoto.bounds.size.height / 2;
-    
-    self.toolbar.clipsToBounds = YES;
-    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.logoutBtn setImage:image forState:UIControlStateNormal];
-    
+- (void)viewDidDisappear:(BOOL)animated {
+    if (self.bean != nil) {
+        [self.beanManager disconnectBean:self.bean error:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,14 +142,14 @@
 
 - (void)update {
     if (self.bean.state == BeanState_Discovered) {
-        [self.connectBtn setTitle:@"Connect" forState:UIControlStateNormal];
+        //        [self.connectBtn setTitle:@"Connect" forState:UIControlStateNormal];
         self.connectBtn.enabled = YES;
         
         [timer invalidate];
     }
     else if (self.bean.state == BeanState_ConnectedAndValidated) {
-        [self.connectBtn setTitle:@"Disconnect" forState:UIControlStateNormal];
-        self.connectBtn.enabled = YES;
+        //        [self.connectBtn setTitle:@"Disconnect" forState:UIControlStateNormal];
+        self.connectBtn.enabled = NO;
         
         [self startReadAccelerationAxes];
     }
@@ -240,7 +246,7 @@
     NSUUID * key = bean.identifier;
     if (![self.beans objectForKey:key]) {
         // New bean
-        self.infoText.text = [NSString stringWithFormat:@"Discover bean %@", bean];
+        self.infoText.text = [NSString stringWithFormat:@"Your bean is '%@'", bean.name];
         NSLog(@"BeanManager:didDiscoverBean:error %@", bean);
         [self.beans setObject:bean forKey:key];
         self.bean = bean;

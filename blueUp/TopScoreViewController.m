@@ -23,11 +23,19 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Score"];
     [query orderByDescending:@"height"];
+    query.limit = 10;
     scoreArray = [query findObjects];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return scoreArray.count;
+}
+
+-(void)updateUserPhoto:(FBSDKProfilePictureView*)userPhoto fid:(NSString *)fid {
+    userPhoto.layer.borderWidth = 0;
+    userPhoto.layer.masksToBounds = YES;
+    userPhoto.layer.cornerRadius = userPhoto.bounds.size.height / 2;
+    [userPhoto setProfileID:fid];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -40,6 +48,8 @@
     PFUser* user = [score objectForKey:@"user"];
     [user fetchIfNeeded];
     NSString* fid = user[@"facebookId"];
+    [self updateUserPhoto:[cell viewWithTag:201] fid:fid];
+
     if ([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc] initWithGraphPath:fid parameters:nil]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
@@ -51,7 +61,7 @@
     }
     
     UILabel* heightLabel = [cell viewWithTag:102];
-    heightLabel.text = @(height).stringValue;
+    heightLabel.text = [NSString stringWithFormat:@"%.02fm", height];
 
     return cell;
 }
