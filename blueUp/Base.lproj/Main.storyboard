@@ -53,7 +53,7 @@
                                 <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-4d-sd6">
-                                <rect key="frame" x="279" y="187" width="42" height="21"/>
+                                <rect key="frame" x="279" y="175" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                     <constraint firstAttribute="height" constant="21" id="0Dm-MG-r8W"/>
                                     <constraint firstAttribute="width" constant="189" id="LtJ-B9-la1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -89,10 +89,10 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8la-2q-ziG">
-                                <rect key="frame" x="180" y="390" width="240" height="128"/>
+                                <rect key="frame" x="193" y="381" width="227" height="128"/>
                                 <color key="backgroundColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="RbY-GM-NwA"/>
+                                    <constraint firstAttribute="width" constant="227" id="RbY-GM-NwA"/>
                                     <constraint firstAttribute="height" constant="128" id="orY-i2-fhj"/>
                                 </constraints>
                                 <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
@@ -108,7 +108,7 @@
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="top" secondItem="7lm-4d-sd6" secondAttribute="bottom" constant="69" id="2qs-g8-m1m"/>
                             <constraint firstItem="7lm-4d-sd6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BiU-k3-0jv"/>
                             <constraint firstItem="Wnb-ac-LVG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="27" id="DgX-ca-DCG"/>
-                            <constraint firstItem="7lm-4d-sd6" firstAttribute="top" secondItem="LVk-cK-QJI" secondAttribute="bottom" constant="20" id="IYK-xN-0B8"/>
+                            <constraint firstItem="7lm-4d-sd6" firstAttribute="top" secondItem="LVk-cK-QJI" secondAttribute="bottom" constant="8" id="IYK-xN-0B8"/>
                             <constraint firstItem="Csb-6P-IMI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="OWX-wI-j3e"/>
                             <constraint firstItem="LVk-cK-QJI" firstAttribute="top" secondItem="Wnb-ac-LVG" secondAttribute="bottom" constant="19" id="Prl-ap-dGP"/>
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" constant="-135" id="Qb0-48-iYz"/>
@@ -117,11 +117,11 @@
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gsS-s4-P8l"/>
                             <constraint firstItem="LVk-cK-QJI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="0.5" id="hKP-Uf-W0z"/>
                             <constraint firstItem="3xf-U4-8Vb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="lL4-tW-aPH"/>
-                            <constraint firstItem="8la-2q-ziG" firstAttribute="top" secondItem="Ecs-9U-iNz" secondAttribute="bottom" constant="26" id="niz-cb-udH"/>
+                            <constraint firstItem="8la-2q-ziG" firstAttribute="top" secondItem="Ecs-9U-iNz" secondAttribute="bottom" constant="17" id="niz-cb-udH"/>
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qiA-uO-M2Y"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3xf-U4-8Vb" secondAttribute="bottom" id="rjN-Rl-dzD"/>
                             <constraint firstItem="Wnb-ac-LVG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uxY-JZ-bx3"/>
-                            <constraint firstItem="8la-2q-ziG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v4p-fW-fzo"/>
+                            <constraint firstItem="8la-2q-ziG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="6.5" id="v4p-fW-fzo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

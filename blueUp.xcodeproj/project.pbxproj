@@ -24,6 +24,9 @@
 		B326B3511C686C3B007A0FFB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326B34E1C686C3B007A0FFB /* FBSDKCoreKit.framework */; };
 		B326B3531C686E04007A0FFB /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326B3521C686E04007A0FFB /* ParseFacebookUtilsV4.framework */; };
 		B326B3551C687014007A0FFB /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326B3541C687014007A0FFB /* ParseUI.framework */; };
+		B33451D51C6D1D0F009817CE /* Geogtq-Lg.otf in Resources */ = {isa = PBXBuildFile; fileRef = B33451D21C6D1D0F009817CE /* Geogtq-Lg.otf */; };
+		B33451D61C6D1D0F009817CE /* Geogtq-Md.otf in Resources */ = {isa = PBXBuildFile; fileRef = B33451D31C6D1D0F009817CE /* Geogtq-Md.otf */; };
+		B33451D71C6D1D0F009817CE /* Geogtq-Rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = B33451D41C6D1D0F009817CE /* Geogtq-Rg.otf */; };
 		B39330EA1C63F87900EE88AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B39330E91C63F87900EE88AD /* main.m */; };
 		B39330ED1C63F87900EE88AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B39330EC1C63F87900EE88AD /* AppDelegate.m */; };
 		B39330F01C63F87900EE88AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39330EF1C63F87900EE88AD /* ViewController.m */; };
@@ -54,6 +57,9 @@
 		B326B34E1C686C3B007A0FFB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		B326B3521C686E04007A0FFB /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		B326B3541C687014007A0FFB /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		B33451D21C6D1D0F009817CE /* Geogtq-Lg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geogtq-Lg.otf"; sourceTree = "<group>"; };
+		B33451D31C6D1D0F009817CE /* Geogtq-Md.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geogtq-Md.otf"; sourceTree = "<group>"; };
+		B33451D41C6D1D0F009817CE /* Geogtq-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geogtq-Rg.otf"; sourceTree = "<group>"; };
 		B39330E51C63F87900EE88AD /* blueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39330E91C63F87900EE88AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B39330EB1C63F87900EE88AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,6 +159,9 @@
 		B39330E71C63F87900EE88AD /* blueUp */ = {
 			isa = PBXGroup;
 			children = (
+				B33451D21C6D1D0F009817CE /* Geogtq-Lg.otf */,
+				B33451D31C6D1D0F009817CE /* Geogtq-Md.otf */,
+				B33451D41C6D1D0F009817CE /* Geogtq-Rg.otf */,
 				B39330EB1C63F87900EE88AD /* AppDelegate.h */,
 				B39330EC1C63F87900EE88AD /* AppDelegate.m */,
 				B39330EE1C63F87900EE88AD /* ViewController.h */,
@@ -238,8 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39330F81C63F87A00EE88AD /* LaunchScreen.storyboard in Resources */,
+				B33451D61C6D1D0F009817CE /* Geogtq-Md.otf in Resources */,
 				B39330F51C63F87A00EE88AD /* Assets.xcassets in Resources */,
 				B39330F31C63F87900EE88AD /* Main.storyboard in Resources */,
+				B33451D51C6D1D0F009817CE /* Geogtq-Lg.otf in Resources */,
+				B33451D71C6D1D0F009817CE /* Geogtq-Rg.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

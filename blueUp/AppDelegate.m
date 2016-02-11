@@ -23,9 +23,19 @@
     [Parse setApplicationId:@"5tbXEyeEjbQ68BhAfUyIEvyMwfO3EtmoecxvxVTW"
                   clientKey:@"34P2XXpAB2Yp0Pj4wF16vyowdXsj70M1XwKWKYWc"];
     
-//    [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    //    [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
+    
+    UIFont* font = [UIFont fontWithName:@"Geogrotesque-Regular" size:18];
+    [UILabel appearance].font = font;
+    [UITextField appearance].font = font;
+    [UITextView appearance].font = font;
+    
+    NSDictionary* attributes = @{NSFontAttributeName:font};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [UINavigationBar appearance].titleTextAttributes = attributes;
+    
     return YES;
 }
 

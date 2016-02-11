@@ -47,7 +47,8 @@
     self.connectBtn.enabled = NO;
     [self.connectBtn setImage:[[UIImage imageNamed:@"up"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     
-    self.infoTextView.text = @"Click UP button above and throw your bean from your head as high as possible to break the records";
+    self.nameLabel.font = [UIFont fontWithName:@"Geogrotesque-Regular" size:20];
+    self.infoTextView.text = @"Click UP button above and throw your bean from your hand as high as possible to break the records";
     
     self.userPhoto.layer.borderWidth = 0;
     self.userPhoto.layer.masksToBounds = YES;
@@ -246,7 +247,7 @@
     NSUUID * key = bean.identifier;
     if (![self.beans objectForKey:key]) {
         // New bean
-        self.infoText.text = [NSString stringWithFormat:@"Your bean is '%@'", bean.name];
+        self.infoText.text = [NSString stringWithFormat:@"Your bean '%@'", bean.name];
         NSLog(@"BeanManager:didDiscoverBean:error %@", bean);
         [self.beans setObject:bean forKey:key];
         self.bean = bean;
