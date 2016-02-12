@@ -27,6 +27,7 @@
 		B33451D51C6D1D0F009817CE /* Geogtq-Lg.otf in Resources */ = {isa = PBXBuildFile; fileRef = B33451D21C6D1D0F009817CE /* Geogtq-Lg.otf */; };
 		B33451D61C6D1D0F009817CE /* Geogtq-Md.otf in Resources */ = {isa = PBXBuildFile; fileRef = B33451D31C6D1D0F009817CE /* Geogtq-Md.otf */; };
 		B33451D71C6D1D0F009817CE /* Geogtq-Rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = B33451D41C6D1D0F009817CE /* Geogtq-Rg.otf */; };
+		B371C2AD1C6DB5D0007EEC9F /* CounterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B371C2AC1C6DB5D0007EEC9F /* CounterView.m */; };
 		B39330EA1C63F87900EE88AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B39330E91C63F87900EE88AD /* main.m */; };
 		B39330ED1C63F87900EE88AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B39330EC1C63F87900EE88AD /* AppDelegate.m */; };
 		B39330F01C63F87900EE88AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39330EF1C63F87900EE88AD /* ViewController.m */; };
@@ -60,6 +61,8 @@
 		B33451D21C6D1D0F009817CE /* Geogtq-Lg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geogtq-Lg.otf"; sourceTree = "<group>"; };
 		B33451D31C6D1D0F009817CE /* Geogtq-Md.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geogtq-Md.otf"; sourceTree = "<group>"; };
 		B33451D41C6D1D0F009817CE /* Geogtq-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geogtq-Rg.otf"; sourceTree = "<group>"; };
+		B371C2AB1C6DB5D0007EEC9F /* CounterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CounterView.h; sourceTree = "<group>"; };
+		B371C2AC1C6DB5D0007EEC9F /* CounterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterView.m; sourceTree = "<group>"; };
 		B39330E51C63F87900EE88AD /* blueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39330E91C63F87900EE88AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B39330EB1C63F87900EE88AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				B39330EF1C63F87900EE88AD /* ViewController.m */,
 				B39BE6861C691020008A1AA0 /* TopScoreViewController.h */,
 				B39BE6871C691020008A1AA0 /* TopScoreViewController.m */,
+				B371C2AB1C6DB5D0007EEC9F /* CounterView.h */,
+				B371C2AC1C6DB5D0007EEC9F /* CounterView.m */,
 				B39330F11C63F87900EE88AD /* Main.storyboard */,
 				B39330F41C63F87A00EE88AD /* Assets.xcassets */,
 				B39330F61C63F87A00EE88AD /* LaunchScreen.storyboard */,
@@ -314,6 +319,7 @@
 				B39BE6881C691020008A1AA0 /* TopScoreViewController.m in Sources */,
 				B39330ED1C63F87900EE88AD /* AppDelegate.m in Sources */,
 				B39330EA1C63F87900EE88AD /* main.m in Sources */,
+				B371C2AD1C6DB5D0007EEC9F /* CounterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

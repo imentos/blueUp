@@ -12,6 +12,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <ParseFacebookUtilsV4/ParseFacebookUtilsV4.h>
 #import <ParseUI/PFLogInViewController.h>
+#import "CounterView.h"
 
 @interface ViewController () <PTDBeanManagerDelegate, PTDBeanDelegate, PFLogInViewControllerDelegate> {
     NSNumber *startTime;
@@ -20,6 +21,7 @@
     BOOL isDown;
     BOOL isUp;
 }
+@property (strong, nonatomic) IBOutlet CounterView *counter;
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIButton *logoutBtn;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
@@ -58,6 +60,10 @@
     
     UIImage *image = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.logoutBtn setImage:image forState:UIControlStateNormal];
+    
+
+    
+    [self.counter start];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -134,7 +140,11 @@
         self.bean.delegate = self;
         [self.beanManager connectToBean:self.bean error:nil];
         self.beanManager.delegate = self;
-        self.connectBtn.enabled = NO;
+//        self.connectBtn.enabled = NO;
+        
+        
+        [self.counter start];
+        
     } else {
         self.bean.delegate = self;
         [self.beanManager disconnectBean:self.bean error:nil];
@@ -154,6 +164,10 @@
         
         [self startReadAccelerationAxes];
     }
+}
+
+-(void)drawRect:(CGRect)rect{
+    NSLog(@"draw");
 }
 
 -(void)startReadAccelerationAxes {
@@ -185,7 +199,7 @@
     
     float sum = sqrt(pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2));
     //    self.infoText.text = [NSString stringWithFormat:@"%f", sum];
-    //    NSLog(@"sum: %f", sum);
+        NSLog(@"sum: %f", sum);
     
     // blue is thrown up (2g)
     if (isUp == NO && sum > 2.0) {

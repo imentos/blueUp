@@ -95,11 +95,19 @@
                                     <constraint firstAttribute="width" constant="227" id="RbY-GM-NwA"/>
                                     <constraint firstAttribute="height" constant="128" id="orY-i2-fhj"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-Va-Cyp" customClass="CounterView">
+                                <rect key="frame" x="230" y="230" width="140" height="140"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.047058823530000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="8BZ-eN-bHs"/>
+                                    <constraint firstAttribute="width" constant="140" id="Gab-YK-TfH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.60392156862745094" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,8 +126,10 @@
                             <constraint firstItem="LVk-cK-QJI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="0.5" id="hKP-Uf-W0z"/>
                             <constraint firstItem="3xf-U4-8Vb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="lL4-tW-aPH"/>
                             <constraint firstItem="8la-2q-ziG" firstAttribute="top" secondItem="Ecs-9U-iNz" secondAttribute="bottom" constant="17" id="niz-cb-udH"/>
+                            <constraint firstItem="1pZ-Va-Cyp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ptl-Of-cJV"/>
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qiA-uO-M2Y"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3xf-U4-8Vb" secondAttribute="bottom" id="rjN-Rl-dzD"/>
+                            <constraint firstItem="1pZ-Va-Cyp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4s-DW-zol"/>
                             <constraint firstItem="Wnb-ac-LVG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uxY-JZ-bx3"/>
                             <constraint firstItem="8la-2q-ziG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="6.5" id="v4p-fW-fzo"/>
                         </constraints>
@@ -134,6 +144,7 @@
                     <navigationItem key="navigationItem" id="9Q3-f6-F9e"/>
                     <connections>
                         <outlet property="connectBtn" destination="Ecs-9U-iNz" id="Kjh-g8-re2"/>
+                        <outlet property="counter" destination="1pZ-Va-Cyp" id="cHy-ru-UmQ"/>
                         <outlet property="infoText" destination="7lm-4d-sd6" id="oS7-Qh-D62"/>
                         <outlet property="infoTextView" destination="8la-2q-ziG" id="mBZ-Ky-kaX"/>
                         <outlet property="logoutBtn" destination="Csb-6P-IMI" id="o5P-Aj-Z1k"/>
@@ -160,7 +171,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0jS-cn-oIf" id="4C7-oZ-Mcs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1L-2r-Uq0">
