@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B39330E41C63F87900EE88AD"
-               BuildableName = "blueUp.app"
-               BlueprintName = "blueUp"
-               ReferencedContainer = "container:blueUp.xcodeproj">
+               BuildableName = "Blue Up.app"
+               BlueprintName = "Blue Up"
+               ReferencedContainer = "container:Blue Up.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B39330E41C63F87900EE88AD"
-            BuildableName = "blueUp.app"
-            BlueprintName = "blueUp"
-            ReferencedContainer = "container:blueUp.xcodeproj">
+            BuildableName = "Blue Up.app"
+            BlueprintName = "Blue Up"
+            ReferencedContainer = "container:Blue Up.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B39330E41C63F87900EE88AD"
-            BuildableName = "blueUp.app"
-            BlueprintName = "blueUp"
-            ReferencedContainer = "container:blueUp.xcodeproj">
+            BuildableName = "Blue Up.app"
+            BlueprintName = "Blue Up"
+            ReferencedContainer = "container:Blue Up.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B39330E41C63F87900EE88AD"
-            BuildableName = "blueUp.app"
-            BlueprintName = "blueUp"
-            ReferencedContainer = "container:blueUp.xcodeproj">
+            BuildableName = "Blue Up.app"
+            BlueprintName = "Blue Up"
+            ReferencedContainer = "container:Blue Up.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

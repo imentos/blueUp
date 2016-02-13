@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B312801E1C6F109C005021F7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B312801D1C6F109C005021F7 /* icon.png */; };
 		B326B3301C6863E6007A0FFB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326B32E1C6863E6007A0FFB /* Bolts.framework */; };
 		B326B3311C6863E6007A0FFB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326B32F1C6863E6007A0FFB /* Parse.framework */; };
 		B326B3331C686404007A0FFB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326B3321C686404007A0FFB /* AudioToolbox.framework */; };
@@ -32,7 +33,7 @@
 		B39330ED1C63F87900EE88AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B39330EC1C63F87900EE88AD /* AppDelegate.m */; };
 		B39330F01C63F87900EE88AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39330EF1C63F87900EE88AD /* ViewController.m */; };
 		B39330F31C63F87900EE88AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39330F11C63F87900EE88AD /* Main.storyboard */; };
-		B39330F51C63F87A00EE88AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39330F41C63F87A00EE88AD /* Assets.xcassets */; };
+		B39330F51C63F87A00EE88AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39330F41C63F87A00EE88AD /* Images.xcassets */; };
 		B39330F81C63F87A00EE88AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39330F61C63F87A00EE88AD /* LaunchScreen.storyboard */; };
 		B39BE6881C691020008A1AA0 /* TopScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39BE6871C691020008A1AA0 /* TopScoreViewController.m */; };
 		CFDF249413AD166B6B0E435D /* libPods-blueUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 308BAFE4C24DE5C07B04643C /* libPods-blueUp.a */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		308BAFE4C24DE5C07B04643C /* libPods-blueUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-blueUp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		523AE2998DD2A69F85B5D605 /* Pods-blueUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-blueUp/Pods-blueUp.release.xcconfig"; sourceTree = "<group>"; };
+		B312801D1C6F109C005021F7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B326B32E1C6863E6007A0FFB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		B326B32F1C6863E6007A0FFB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		B326B3321C686404007A0FFB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -63,14 +65,14 @@
 		B33451D41C6D1D0F009817CE /* Geogtq-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geogtq-Rg.otf"; sourceTree = "<group>"; };
 		B371C2AB1C6DB5D0007EEC9F /* CounterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CounterView.h; sourceTree = "<group>"; };
 		B371C2AC1C6DB5D0007EEC9F /* CounterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterView.m; sourceTree = "<group>"; };
-		B39330E51C63F87900EE88AD /* blueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B39330E51C63F87900EE88AD /* Blue Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blue Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39330E91C63F87900EE88AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B39330EB1C63F87900EE88AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B39330EC1C63F87900EE88AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B39330EE1C63F87900EE88AD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B39330EF1C63F87900EE88AD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B39330F21C63F87900EE88AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B39330F41C63F87A00EE88AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B39330F41C63F87A00EE88AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B39330F71C63F87A00EE88AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B39330F91C63F87A00EE88AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B39BE6861C691020008A1AA0 /* TopScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoreViewController.h; sourceTree = "<group>"; };
@@ -154,7 +156,7 @@
 		B39330E61C63F87900EE88AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B39330E51C63F87900EE88AD /* blueUp.app */,
+				B39330E51C63F87900EE88AD /* Blue Up.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +164,7 @@
 		B39330E71C63F87900EE88AD /* blueUp */ = {
 			isa = PBXGroup;
 			children = (
+				B312801D1C6F109C005021F7 /* icon.png */,
 				B33451D21C6D1D0F009817CE /* Geogtq-Lg.otf */,
 				B33451D31C6D1D0F009817CE /* Geogtq-Md.otf */,
 				B33451D41C6D1D0F009817CE /* Geogtq-Rg.otf */,
@@ -174,7 +177,7 @@
 				B371C2AB1C6DB5D0007EEC9F /* CounterView.h */,
 				B371C2AC1C6DB5D0007EEC9F /* CounterView.m */,
 				B39330F11C63F87900EE88AD /* Main.storyboard */,
-				B39330F41C63F87A00EE88AD /* Assets.xcassets */,
+				B39330F41C63F87A00EE88AD /* Images.xcassets */,
 				B39330F61C63F87A00EE88AD /* LaunchScreen.storyboard */,
 				B39330F91C63F87A00EE88AD /* Info.plist */,
 				B39330E81C63F87900EE88AD /* Supporting Files */,
@@ -193,9 +196,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B39330E41C63F87900EE88AD /* blueUp */ = {
+		B39330E41C63F87900EE88AD /* Blue Up */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B39330FC1C63F87A00EE88AD /* Build configuration list for PBXNativeTarget "blueUp" */;
+			buildConfigurationList = B39330FC1C63F87A00EE88AD /* Build configuration list for PBXNativeTarget "Blue Up" */;
 			buildPhases = (
 				86AEC7C9D0D0FE9766878CE5 /* Check Pods Manifest.lock */,
 				B39330E11C63F87900EE88AD /* Sources */,
@@ -208,9 +211,9 @@
 			);
 			dependencies = (
 			);
-			name = blueUp;
+			name = "Blue Up";
 			productName = blueUp;
-			productReference = B39330E51C63F87900EE88AD /* blueUp.app */;
+			productReference = B39330E51C63F87900EE88AD /* Blue Up.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -228,7 +231,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B39330E01C63F87900EE88AD /* Build configuration list for PBXProject "blueUp" */;
+			buildConfigurationList = B39330E01C63F87900EE88AD /* Build configuration list for PBXProject "Blue Up" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -241,7 +244,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B39330E41C63F87900EE88AD /* blueUp */,
+				B39330E41C63F87900EE88AD /* Blue Up */,
 			);
 		};
 /* End PBXProject section */
@@ -252,8 +255,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39330F81C63F87A00EE88AD /* LaunchScreen.storyboard in Resources */,
+				B312801E1C6F109C005021F7 /* icon.png in Resources */,
 				B33451D61C6D1D0F009817CE /* Geogtq-Md.otf in Resources */,
-				B39330F51C63F87A00EE88AD /* Assets.xcassets in Resources */,
+				B39330F51C63F87A00EE88AD /* Images.xcassets in Resources */,
 				B39330F31C63F87900EE88AD /* Main.storyboard in Resources */,
 				B33451D51C6D1D0F009817CE /* Geogtq-Lg.otf in Resources */,
 				B33451D71C6D1D0F009817CE /* Geogtq-Rg.otf in Resources */,
@@ -384,6 +388,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Blue Up";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -420,6 +425,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "Blue Up";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -440,7 +446,7 @@
 				INFOPLIST_FILE = blueUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = brttr.blueUp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Blue Up";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -460,7 +466,7 @@
 				INFOPLIST_FILE = blueUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = brttr.blueUp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Blue Up";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -468,7 +474,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B39330E01C63F87900EE88AD /* Build configuration list for PBXProject "blueUp" */ = {
+		B39330E01C63F87900EE88AD /* Build configuration list for PBXProject "Blue Up" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B39330FA1C63F87A00EE88AD /* Debug */,
@@ -477,7 +483,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B39330FC1C63F87A00EE88AD /* Build configuration list for PBXNativeTarget "blueUp" */ = {
+		B39330FC1C63F87A00EE88AD /* Build configuration list for PBXNativeTarget "Blue Up" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B39330FD1C63F87A00EE88AD /* Debug */,

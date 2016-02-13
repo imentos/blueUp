@@ -14,6 +14,8 @@
 #import <ParseUI/PFLogInViewController.h>
 #import "CounterView.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface ViewController () <PTDBeanManagerDelegate, PTDBeanDelegate, PFLogInViewControllerDelegate> {
     NSNumber *startTime;
     NSNumber *endTime;
@@ -50,7 +52,7 @@
     [self.connectBtn setImage:[[UIImage imageNamed:@"up"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     
     self.nameLabel.font = [UIFont fontWithName:@"Geogrotesque-Regular" size:20];
-    self.infoTextView.text = @"Click UP button above and throw your bean from your hand as high as possible to break the records";
+    self.infoTextView.text = @"Click UP button above, wait for GO, and throw your bean from your hand as high as possible to break the records";
     
     self.userPhoto.layer.borderWidth = 0;
     self.userPhoto.layer.masksToBounds = YES;
@@ -84,10 +86,12 @@
         ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
         
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+        logInController.view.backgroundColor = UIColorFromRGB(0x009AED);
+        UIImageView* logoView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo"]];
+        logoView.contentMode = UIViewContentModeScaleAspectFill;
+        logInController.logInView.logo = logoView;
         logInController.delegate = self;
-        logInController.fields = (PFLogInFieldsUsernameAndPassword
-                                  | PFLogInFieldsFacebook
-                                  | PFLogInFieldsDismissButton);
+        logInController.fields = (PFLogInFieldsFacebook);
         [self presentViewController:logInController animated:YES completion:nil];
     } else {
         NSLog(@"User is cached and showing content.");
@@ -138,9 +142,9 @@
         self.bean.delegate = self;
         [self.beanManager connectToBean:self.bean error:nil];
         self.beanManager.delegate = self;
-//        self.connectBtn.enabled = NO;
         
-        
+        self.infoText.text = @"Connecting...";
+        self.connectBtn.enabled = NO;
 //        [self.counter start];
         
     } else {
@@ -232,7 +236,7 @@
         score[@"user"] = [PFUser currentUser];
         [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                self.infoText.text = [NSString stringWithFormat:@"Height: %f", height];
+                self.infoText.text = [NSString stringWithFormat:@"Height: %.02fm", height];
                 
                 [self.beanManager disconnectFromAllBeans:nil];
             } else {
@@ -286,6 +290,8 @@
         return;
     }
     [self update];
+    
+    self.infoText.text = @"GO";
 }
 
 - (void)BeanManager:(PTDBeanManager*)beanManager didDisconnectBean:(PTDBean*)bean error:(NSError*)error{
