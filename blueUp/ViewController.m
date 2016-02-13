@@ -86,12 +86,12 @@
         ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) { // Check if user is linked to Facebook
         
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
-        logInController.view.backgroundColor = UIColorFromRGB(0x009AED);
+        logInController.delegate = self;
+        logInController.fields = (PFLogInFieldsFacebook);
+        logInController.logInView.backgroundColor = UIColorFromRGB(0x009AED);
         UIImageView* logoView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo"]];
         logoView.contentMode = UIViewContentModeScaleAspectFill;
         logInController.logInView.logo = logoView;
-        logInController.delegate = self;
-        logInController.fields = (PFLogInFieldsFacebook);
         [self presentViewController:logInController animated:YES completion:nil];
     } else {
         NSLog(@"User is cached and showing content.");
