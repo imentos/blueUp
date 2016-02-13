@@ -61,9 +61,7 @@
     UIImage *image = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.logoutBtn setImage:image forState:UIControlStateNormal];
     
-
-    
-    [self.counter start];
+//    [self.counter start];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -143,7 +141,7 @@
 //        self.connectBtn.enabled = NO;
         
         
-        [self.counter start];
+//        [self.counter start];
         
     } else {
         self.bean.delegate = self;
@@ -253,6 +251,10 @@
     else if (self.beanManager.state == BeanManagerState_PoweredOff) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Turn on bluetooth to continue" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
         [alert show];
+        
+        self.connectBtn.enabled = NO;
+        self.infoText.text = @"Turn on bluetooth to continue";
+        [self.beans removeAllObjects];
         return;
     }
 }

@@ -23,8 +23,11 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Score"];
     [query orderByDescending:@"height"];
-    query.limit = 10;
-    scoreArray = [query findObjects];
+    query.limit = 5;
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        scoreArray = objects;
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
