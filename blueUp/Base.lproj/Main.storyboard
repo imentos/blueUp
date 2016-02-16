@@ -38,20 +38,6 @@
                                     <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gj8-X6-7Xn"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xf-U4-8Vb">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2W5-6j-rFJ"/>
-                                    <barButtonItem image="Trophy" id="ApA-uG-NpS">
-                                        <connections>
-                                            <segue destination="b4H-Uc-2qA" kind="presentation" id="PSD-dn-hEB"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Fjn-fW-rW1"/>
-                                </items>
-                                <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-4d-sd6">
                                 <rect key="frame" x="279" y="175" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -100,6 +86,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xf-U4-8Vb">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2W5-6j-rFJ"/>
+                                    <barButtonItem title="?" id="EYF-wJ-o3k"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dn1-92-Hau"/>
+                                    <barButtonItem image="Trophy" id="ApA-uG-NpS">
+                                        <connections>
+                                            <segue destination="b4H-Uc-2qA" kind="presentation" id="PSD-dn-hEB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="viA-iS-F8I"/>
+                                    <barButtonItem image="share" id="Ona-uz-FkB">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="shareSocial:" destination="BYZ-38-t0r" id="35s-UM-ncm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Fjn-fW-rW1"/>
+                                </items>
+                                <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.60392156862745094" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,6 +147,7 @@
                         <outlet property="infoTextView" destination="8la-2q-ziG" id="mBZ-Ky-kaX"/>
                         <outlet property="logoutBtn" destination="Csb-6P-IMI" id="o5P-Aj-Z1k"/>
                         <outlet property="nameLabel" destination="LVk-cK-QJI" id="yZj-HI-Oy1"/>
+                        <outlet property="shareBtn" destination="Ona-uz-FkB" id="JSW-ld-8sc"/>
                         <outlet property="toolbar" destination="3xf-U4-8Vb" id="4jQ-t1-FCd"/>
                         <outlet property="userPhoto" destination="Wnb-ac-LVG" id="AaQ-py-Wub"/>
                     </connections>
@@ -260,5 +270,6 @@
     </scenes>
     <resources>
         <image name="Trophy" width="30" height="30"/>
+        <image name="share" width="36" height="36"/>
     </resources>
 </document>

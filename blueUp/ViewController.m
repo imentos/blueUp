@@ -23,6 +23,7 @@
     BOOL isDown;
     BOOL isUp;
 }
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *shareBtn;
 @property (strong, nonatomic) IBOutlet CounterView *counter;
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIButton *logoutBtn;
@@ -63,7 +64,7 @@
     UIImage *image = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.logoutBtn setImage:image forState:UIControlStateNormal];
     
-//    [self.counter start];
+    //    [self.counter start];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -145,7 +146,7 @@
         
         self.infoText.text = @"Connecting...";
         self.connectBtn.enabled = NO;
-//        [self.counter start];
+        //        [self.counter start];
         
     } else {
         self.bean.delegate = self;
@@ -201,7 +202,7 @@
     
     float sum = sqrt(pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2));
     //    self.infoText.text = [NSString stringWithFormat:@"%f", sum];
-        NSLog(@"sum: %f", sum);
+    NSLog(@"sum: %f", sum);
     
     // blue is thrown up (2g)
     if (isUp == NO && sum > 2.0) {
@@ -300,5 +301,60 @@
     }
 }
 
+- (void)composePost:(float)height type:(NSString*)type {
+    if ([SLComposeViewController isAvailableForServiceType:type]) {
+        SLComposeViewController *sheet = [SLComposeViewController composeViewControllerForServiceType:type];
+        [sheet setInitialText:[NSString stringWithFormat:@"I threw my LightBlue Bean up to %0.2fm height. Do you want to challenge me?", height]];
+        [sheet addURL:@""];
+        [sheet addImage:[UIImage imageNamed:@"AppIcon40x40"]];
+        [sheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    NSLog(@"Post Canceled");
+                    break;
+                case SLComposeViewControllerResultDone:
+                    NSLog(@"Post Sucessful");
+                    break;
+                default:
+                    break;
+            }
+        }];
+        [self presentViewController:sheet animated:YES completion:nil];
+    } else {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Facebook" message:@"Facebook not available" preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (IBAction)shareSocial:(id)sender {
+    PFQuery *query = [PFQuery queryWithClassName:@"Score"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable scores, NSError * _Nullable error) {
+        if (scores.count == 0) {
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil message:@"You don't have any scores yet." preferredStyle:UIAlertControllerStyleAlert];
+            [self presentViewController:alert animated:YES completion:nil];
+            return;
+        }
+        
+        float height = [[[scores objectAtIndex:0] objectForKey:@"height"] floatValue];
+        
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil message:@"Tell Your Friends!"preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Share on Facebook" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self composePost:height type:SLServiceTypeFacebook];
+        }]];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Post on Twitter" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self composePost:height type:SLServiceTypeTwitter];
+        }]];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            //
+        }]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+}
 
 @end
