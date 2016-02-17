@@ -90,7 +90,7 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2W5-6j-rFJ"/>
-                                    <barButtonItem title="?" id="EYF-wJ-o3k"/>
+                                    <barButtonItem image="info" id="6eM-tK-1Vx"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dn1-92-Hau"/>
                                     <barButtonItem image="Trophy" id="ApA-uG-NpS">
                                         <connections>
@@ -170,7 +170,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0jS-cn-oIf" id="4C7-oZ-Mcs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwG-3A-1dM">
@@ -270,6 +270,7 @@
     </scenes>
     <resources>
         <image name="Trophy" width="30" height="30"/>
+        <image name="info" width="30" height="30"/>
         <image name="share" width="36" height="36"/>
     </resources>
 </document>
