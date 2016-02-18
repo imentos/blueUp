@@ -39,13 +39,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-4d-sd6">
-                                <rect key="frame" x="279" y="175" width="42" height="20.5"/>
+                                <rect key="frame" x="279" y="190.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wnb-ac-LVG" customClass="FBSDKProfilePictureView">
-                                <rect key="frame" x="260" y="47" width="80" height="80"/>
+                                <rect key="frame" x="260" y="66.5" width="80" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="0dj-Ek-kbA"/>
@@ -53,7 +53,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVk-cK-QJI">
-                                <rect key="frame" x="206" y="146" width="189" height="21"/>
+                                <rect key="frame" x="206" y="161.5" width="189" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0Dm-MG-r8W"/>
                                     <constraint firstAttribute="width" constant="189" id="LtJ-B9-la1"/>
@@ -62,18 +62,17 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csb-6P-IMI">
-                                <rect key="frame" x="560" y="28" width="20" height="20"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Click UP button above, wait for GO, and throw your bean from your hand as high as possible to break the records" translatesAutoresizingMaskIntoConstraints="NO" id="8la-2q-ziG">
+                                <rect key="frame" x="186.5" y="381" width="227" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="S84-tN-m1a"/>
-                                    <constraint firstAttribute="height" constant="20" id="Xow-m1-twK"/>
+                                    <constraint firstAttribute="width" constant="227" id="RbY-GM-NwA"/>
+                                    <constraint firstAttribute="height" constant="128" id="orY-i2-fhj"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="logout"/>
-                                <connections>
-                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1cR-6E-dur"/>
-                                </connections>
-                            </button>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xf-U4-8Vb">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -101,17 +100,18 @@
                                 <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Click UP button above, wait for GO, and throw your bean from your hand as high as possible to break the records" translatesAutoresizingMaskIntoConstraints="NO" id="8la-2q-ziG">
-                                <rect key="frame" x="186.5" y="381" width="227" height="128"/>
-                                <color key="backgroundColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csb-6P-IMI">
+                                <rect key="frame" x="555" y="28" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="227" id="RbY-GM-NwA"/>
-                                    <constraint firstAttribute="height" constant="128" id="orY-i2-fhj"/>
+                                    <constraint firstAttribute="width" constant="25" id="S84-tN-m1a"/>
+                                    <constraint firstAttribute="height" constant="25" id="Xow-m1-twK"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1cR-6E-dur"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.60392156862745094" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.60392156860000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,10 +121,13 @@
                             <constraint firstItem="7lm-4d-sd6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BiU-k3-0jv"/>
                             <constraint firstItem="Wnb-ac-LVG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="27" id="DgX-ca-DCG"/>
                             <constraint firstItem="7lm-4d-sd6" firstAttribute="top" secondItem="LVk-cK-QJI" secondAttribute="bottom" constant="8" id="IYK-xN-0B8"/>
+                            <constraint firstItem="LVk-cK-QJI" firstAttribute="top" secondItem="Wnb-ac-LVG" secondAttribute="bottom" constant="15" id="IZf-fu-RLV"/>
+                            <constraint firstItem="Ecs-9U-iNz" firstAttribute="top" secondItem="7lm-4d-sd6" secondAttribute="bottom" constant="25" id="JJM-ex-qRF"/>
                             <constraint firstItem="Csb-6P-IMI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="OWX-wI-j3e"/>
                             <constraint firstItem="LVk-cK-QJI" firstAttribute="top" secondItem="Wnb-ac-LVG" secondAttribute="bottom" constant="19" id="Prl-ap-dGP"/>
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" constant="-135" id="Qb0-48-iYz"/>
                             <constraint firstItem="7lm-4d-sd6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-102.5" id="QkH-uv-FNa"/>
+                            <constraint firstItem="7lm-4d-sd6" firstAttribute="top" secondItem="LVk-cK-QJI" secondAttribute="bottom" constant="8" id="YPL-ls-JQF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Csb-6P-IMI" secondAttribute="trailing" id="fmZ-SM-FYH"/>
                             <constraint firstItem="Ecs-9U-iNz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gsS-s4-P8l"/>
                             <constraint firstItem="LVk-cK-QJI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="0.5" id="hKP-Uf-W0z"/>
@@ -137,6 +140,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Prl-ap-dGP"/>
+                                <exclude reference="DgX-ca-DCG"/>
+                                <exclude reference="IYK-xN-0B8"/>
                                 <exclude reference="QkH-uv-FNa"/>
                                 <exclude reference="2qs-g8-m1m"/>
                                 <exclude reference="Qb0-48-iYz"/>
@@ -315,7 +321,7 @@
                                     <constraint firstAttribute="height" constant="200" id="9jE-ej-O7v"/>
                                     <constraint firstAttribute="width" constant="300" id="yNp-Ao-ME6"/>
                                 </constraints>
-                                <string key="text">First, you need a LightBlue Bean. If you don't have one, you should order one from punchthrough.com. Don't throw away the original box for LightBlue Bean which alreay include foam for protection. If you had threw away your box, find a matchbox or any container with protection.</string>
+                                <string key="text">First, you need a LightBlue Bean. If you don't have one, you should order one from punchthrough.com. Don't throw away the original box for LightBlue Bean which already includes foam for protection. If you had thrown it away, find a matchbox or a small box with protection.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -363,7 +369,7 @@
                                     <constraint firstAttribute="width" constant="300" id="DN1-Tu-8xM"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="254" id="idl-B6-J4b"/>
                                 </constraints>
-                                <string key="text">Second, use Blue Up app to connect LightBlue Bean and make sure your bluetooth on. Press UP button and put your phone aside and wait for GO message. Then, throw your Bean from your hand as high as possible to break the records.</string>
+                                <string key="text">Second, use Blue Up app to connect your LightBlue Bean and make sure your bluetooth on. Press UP button and put your phone aside and wait for GO message. Then, throw your Bean from your hand as high as you can.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -419,7 +425,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="e8c-vU-mja"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="176" id="wMQ-gm-Okj"/>
                                 </constraints>
-                                <string key="text">We will save all of your scores. If you don't like your score, play it again, and keep checking if you are in the top players list! You can share your score to your friends using facebook or twitter as well.</string>
+                                <string key="text">We will save all your scores. If you don't like it, play it again, and keep checking if you are in the top players list! You can share your score to your friends using facebook or twitter as well.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -499,6 +505,6 @@
         <image name="page1" width="3654" height="2207"/>
         <image name="page2" width="450" height="312"/>
         <image name="page3" width="1280" height="1024"/>
-        <image name="share" width="36" height="36"/>
+        <image name="share" width="30" height="30"/>
     </resources>
 </document>
