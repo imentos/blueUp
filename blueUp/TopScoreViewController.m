@@ -64,7 +64,7 @@
     }
     
     UILabel* heightLabel = [cell viewWithTag:102];
-    heightLabel.text = [NSString stringWithFormat:@"%.02fm", height];
+    heightLabel.text = [NSString stringWithFormat:@"%.03fm", height];
 
     return cell;
 }

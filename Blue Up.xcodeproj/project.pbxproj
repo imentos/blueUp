@@ -36,6 +36,7 @@
 		B39330F51C63F87A00EE88AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39330F41C63F87A00EE88AD /* Images.xcassets */; };
 		B39330F81C63F87A00EE88AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39330F61C63F87A00EE88AD /* LaunchScreen.storyboard */; };
 		B39BE6881C691020008A1AA0 /* TopScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39BE6871C691020008A1AA0 /* TopScoreViewController.m */; };
+		B3E1C6531C7572740090A11E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E1C6521C7572740090A11E /* InfoViewController.m */; };
 		CFDF249413AD166B6B0E435D /* libPods-blueUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 308BAFE4C24DE5C07B04643C /* libPods-blueUp.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		B39330F91C63F87A00EE88AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B39BE6861C691020008A1AA0 /* TopScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoreViewController.h; sourceTree = "<group>"; };
 		B39BE6871C691020008A1AA0 /* TopScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoreViewController.m; sourceTree = "<group>"; };
+		B3E1C6511C7572740090A11E /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		B3E1C6521C7572740090A11E /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		F09C94FD72A6692992DF24C0 /* Pods-blueUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blueUp/Pods-blueUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +179,8 @@
 				B39BE6871C691020008A1AA0 /* TopScoreViewController.m */,
 				B371C2AB1C6DB5D0007EEC9F /* CounterView.h */,
 				B371C2AC1C6DB5D0007EEC9F /* CounterView.m */,
+				B3E1C6511C7572740090A11E /* InfoViewController.h */,
+				B3E1C6521C7572740090A11E /* InfoViewController.m */,
 				B39330F11C63F87900EE88AD /* Main.storyboard */,
 				B39330F41C63F87A00EE88AD /* Images.xcassets */,
 				B39330F61C63F87A00EE88AD /* LaunchScreen.storyboard */,
@@ -321,6 +326,7 @@
 			files = (
 				B39330F01C63F87900EE88AD /* ViewController.m in Sources */,
 				B39BE6881C691020008A1AA0 /* TopScoreViewController.m in Sources */,
+				B3E1C6531C7572740090A11E /* InfoViewController.m in Sources */,
 				B39330ED1C63F87900EE88AD /* AppDelegate.m in Sources */,
 				B39330EA1C63F87900EE88AD /* main.m in Sources */,
 				B371C2AD1C6DB5D0007EEC9F /* CounterView.m in Sources */,

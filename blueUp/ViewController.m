@@ -53,7 +53,6 @@
     [self.connectBtn setImage:[[UIImage imageNamed:@"up"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     
     self.nameLabel.font = [UIFont fontWithName:@"Geogrotesque-Regular" size:20];
-    self.infoTextView.text = @"Click UP button above, wait for GO, and throw your bean from your hand as high as possible to break the records";
     
     self.userPhoto.layer.borderWidth = 0;
     self.userPhoto.layer.masksToBounds = YES;
@@ -237,7 +236,7 @@
         score[@"user"] = [PFUser currentUser];
         [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                self.infoText.text = [NSString stringWithFormat:@"Height: %.02fm", height];
+                self.infoText.text = [NSString stringWithFormat:@"Height: %.03fm", height];
                 
                 [self.beanManager disconnectFromAllBeans:nil];
             } else {
@@ -305,7 +304,7 @@
     if ([SLComposeViewController isAvailableForServiceType:type]) {
         SLComposeViewController *sheet = [SLComposeViewController composeViewControllerForServiceType:type];
         [sheet setInitialText:[NSString stringWithFormat:@"I threw my LightBlue Bean up to %0.2fm height. Do you want to challenge me?", height]];
-        [sheet addURL:@""];
+//        [sheet addURL:@""];
         [sheet addImage:[UIImage imageNamed:@"AppIcon40x40"]];
         [sheet setCompletionHandler:^(SLComposeViewControllerResult result) {
             switch (result) {
@@ -339,7 +338,7 @@
         
         float height = [[[scores objectAtIndex:0] objectForKey:@"height"] floatValue];
         
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil message:@"Tell Your Friends!"preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil message:@"Tell Your Friends"preferredStyle:UIAlertControllerStyleActionSheet];
         
         [alert addAction:[UIAlertAction actionWithTitle:@"Share on Facebook" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self composePost:height type:SLServiceTypeFacebook];

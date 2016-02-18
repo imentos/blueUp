@@ -11,13 +11,13 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/ParseFacebookUtilsV4.h>
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Initialize Parse.
     [Parse setApplicationId:@"5tbXEyeEjbQ68BhAfUyIEvyMwfO3EtmoecxvxVTW"
@@ -35,6 +35,10 @@
     NSDictionary* attributes = @{NSFontAttributeName:font};
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [UINavigationBar appearance].titleTextAttributes = attributes;
+    
+    [[UIPageControl appearance] setPageIndicatorTintColor: [UIColor grayColor]];
+    [[UIPageControl appearance] setCurrentPageIndicatorTintColor: [UIColor whiteColor]];
+    [[UIPageControl appearance] setBackgroundColor: UIColorFromRGB(0x009AED)];
     
     return YES;
 }
