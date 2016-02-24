@@ -6,6 +6,8 @@
 //  Copyright © 2016 Kuo, Ray. All rights reserved.
 //
 
+@import GoogleMobileAds;
+
 #import "ViewController.h"
 #import <PTDBeanManager.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -35,6 +37,7 @@
 @property (nonatomic, strong) PTDBeanManager *beanManager;
 @property (nonatomic, strong) PTDBean *bean;
 @property (nonatomic, strong) NSMutableDictionary *beans;
+@property (strong, nonatomic) IBOutlet GADBannerView *bannerView;
 @end
 
 @implementation ViewController
@@ -64,6 +67,10 @@
     [self.logoutBtn setImage:image forState:UIControlStateNormal];
     
     //    [self.counter start];
+    
+    self.bannerView.adUnitID = @"ca-app-pub-2232725003266006/9768923372";
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

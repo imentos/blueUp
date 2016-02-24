@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30363391C7DDE3D00BF45AC /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30363381C7DDE3D00BF45AC /* GoogleMobileAds.framework */; };
+		B303633B1C7DDE8C00BF45AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B303633A1C7DDE8C00BF45AC /* AVFoundation.framework */; };
+		B303633D1C7DDEB000BF45AC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B303633C1C7DDEB000BF45AC /* MessageUI.framework */; };
+		B303633F1C7DDEFE00BF45AC /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B303633E1C7DDEFE00BF45AC /* EventKit.framework */; };
+		B30363411C7DDF0800BF45AC /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30363401C7DDF0800BF45AC /* EventKitUI.framework */; };
+		B30363431C7DDF1800BF45AC /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30363421C7DDF1800BF45AC /* AdSupport.framework */; };
+		B30363451C7DDF4C00BF45AC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30363441C7DDF4C00BF45AC /* CoreMedia.framework */; };
+		B30363471C7DDF5C00BF45AC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30363461C7DDF5C00BF45AC /* CoreTelephony.framework */; };
 		B312801E1C6F109C005021F7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B312801D1C6F109C005021F7 /* icon.png */; };
 		B326B3301C6863E6007A0FFB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326B32E1C6863E6007A0FFB /* Bolts.framework */; };
 		B326B3311C6863E6007A0FFB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326B32F1C6863E6007A0FFB /* Parse.framework */; };
@@ -43,6 +51,14 @@
 /* Begin PBXFileReference section */
 		308BAFE4C24DE5C07B04643C /* libPods-blueUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-blueUp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		523AE2998DD2A69F85B5D605 /* Pods-blueUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-blueUp/Pods-blueUp.release.xcconfig"; sourceTree = "<group>"; };
+		B30363381C7DDE3D00BF45AC /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		B303633A1C7DDE8C00BF45AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B303633C1C7DDEB000BF45AC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B303633E1C7DDEFE00BF45AC /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		B30363401C7DDF0800BF45AC /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		B30363421C7DDF1800BF45AC /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		B30363441C7DDF4C00BF45AC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B30363461C7DDF5C00BF45AC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B312801D1C6F109C005021F7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B326B32E1C6863E6007A0FFB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		B326B32F1C6863E6007A0FFB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -88,6 +104,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B30363471C7DDF5C00BF45AC /* CoreTelephony.framework in Frameworks */,
+				B30363451C7DDF4C00BF45AC /* CoreMedia.framework in Frameworks */,
+				B326B3371C686416007A0FFB /* CoreGraphics.framework in Frameworks */,
+				B326B3331C686404007A0FFB /* AudioToolbox.framework in Frameworks */,
+				B30363431C7DDF1800BF45AC /* AdSupport.framework in Frameworks */,
+				B30363411C7DDF0800BF45AC /* EventKitUI.framework in Frameworks */,
+				B303633F1C7DDEFE00BF45AC /* EventKit.framework in Frameworks */,
+				B303633D1C7DDEB000BF45AC /* MessageUI.framework in Frameworks */,
+				B303633B1C7DDE8C00BF45AC /* AVFoundation.framework in Frameworks */,
+				B30363391C7DDE3D00BF45AC /* GoogleMobileAds.framework in Frameworks */,
 				B326B3551C687014007A0FFB /* ParseUI.framework in Frameworks */,
 				B326B3451C686458007A0FFB /* libsqlite3.tbd in Frameworks */,
 				B326B3431C68644D007A0FFB /* libz.tbd in Frameworks */,
@@ -97,9 +123,7 @@
 				B326B33D1C68642F007A0FFB /* Security.framework in Frameworks */,
 				B326B33B1C686427007A0FFB /* QuartzCore.framework in Frameworks */,
 				B326B3391C68641F007A0FFB /* CoreLocation.framework in Frameworks */,
-				B326B3371C686416007A0FFB /* CoreGraphics.framework in Frameworks */,
 				B326B3351C68640C007A0FFB /* CFNetwork.framework in Frameworks */,
-				B326B3331C686404007A0FFB /* AudioToolbox.framework in Frameworks */,
 				B326B34F1C686C3B007A0FFB /* FBSDKShareKit.framework in Frameworks */,
 				CFDF249413AD166B6B0E435D /* libPods-blueUp.a in Frameworks */,
 				B326B3511C686C3B007A0FFB /* FBSDKCoreKit.framework in Frameworks */,
@@ -124,6 +148,14 @@
 		50CC2F4447049CF379265F2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B30363461C7DDF5C00BF45AC /* CoreTelephony.framework */,
+				B30363441C7DDF4C00BF45AC /* CoreMedia.framework */,
+				B30363421C7DDF1800BF45AC /* AdSupport.framework */,
+				B30363401C7DDF0800BF45AC /* EventKitUI.framework */,
+				B303633E1C7DDEFE00BF45AC /* EventKit.framework */,
+				B303633C1C7DDEB000BF45AC /* MessageUI.framework */,
+				B303633A1C7DDE8C00BF45AC /* AVFoundation.framework */,
+				B30363381C7DDE3D00BF45AC /* GoogleMobileAds.framework */,
 				B326B3541C687014007A0FFB /* ParseUI.framework */,
 				B326B3521C686E04007A0FFB /* ParseFacebookUtilsV4.framework */,
 				B326B34C1C686C3B007A0FFB /* FBSDKShareKit.framework */,
@@ -445,6 +477,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -465,6 +498,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
